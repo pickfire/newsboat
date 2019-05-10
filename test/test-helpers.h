@@ -177,11 +177,11 @@ public:
 		// input is dependent only on TEMPDIR environment variable, and thus
 		// controlled by the person running the tests. In my opinion, that
 		// person can be trusted.
-		//
+		const int result = ::system(cmd.c_str());
 		// We ignore the return value because we're in a destructor and can't
 		// throw an exception. The system will have to clean up the directory
 		// after us, I'm afraid.
-		(void)::system(cmd.c_str());
+		(void)result;
 	}
 
 	const std::string getPath()
